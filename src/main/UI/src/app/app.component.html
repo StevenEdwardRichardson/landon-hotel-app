@@ -23,7 +23,7 @@
   <div class="scene" id="welcome">
     <article class="content">
 
- 
+
 
       <div class="row">
         <div class=""col-12>
@@ -58,7 +58,7 @@
               </div>
               </form>
 
-        
+
         </div>
       </div>
 
@@ -75,8 +75,10 @@
                 </td>
                 <td>
                   <strong>Room #: {{room.roomNumber}}</strong><br/>
-                  <strong>Price: ${{room.price}}</strong>
-                </td>
+                  <strong>Price:</strong><br/>
+                  $ {{room.price}} USD<br/>
+                  C$ {{room.price}} CAD<br/>
+                  € {{room.price}} EUR                </td>
                 <td>
                   <button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button>
                 </td>
