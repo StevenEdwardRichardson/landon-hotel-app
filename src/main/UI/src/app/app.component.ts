@@ -25,6 +25,7 @@ export class AppComponent implements OnInit{
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
   presentationTime!: string;
+  welcomeMessages!: string;
 
   ngOnInit(){
     this.roomsearch= new FormGroup({
@@ -43,6 +44,7 @@ export class AppComponent implements OnInit{
     });
 
     this.getPresentationTime();
+    this.getWelcomeMessages();
   }
 
   onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
@@ -80,6 +82,11 @@ export class AppComponent implements OnInit{
   getPresentationTime(): void {
     this.httpClient.get(this.baseURL + '/presentation/time/v1', {responseType: 'text'})
       .subscribe(time => this.presentationTime = time);
+  }
+
+  getWelcomeMessages(): void {
+    this.httpClient.get(this.baseURL + '/welcome/message/v1', {responseType: 'text'})
+      .subscribe(messages => this.welcomeMessages = messages);
   }
 
 }
